@@ -15,7 +15,9 @@ set(CPPREST_VERSION_REVISION 14)
 
 enable_testing()
 
-set(WERROR ON CACHE BOOL "Treat Warnings as Errors.")
+if (NOT DEFINED WERROR)
+  set(WERROR ON CACHE BOOL "Treat Warnings as Errors.")
+endif()
 set(CPPREST_EXCLUDE_WEBSOCKETS OFF CACHE BOOL "Exclude websockets functionality.")
 set(CPPREST_EXCLUDE_COMPRESSION OFF CACHE BOOL "Exclude compression functionality.")
 set(CPPREST_EXCLUDE_BROTLI ON CACHE BOOL "Exclude Brotli compression functionality.")
